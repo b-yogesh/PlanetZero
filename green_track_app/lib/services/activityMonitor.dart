@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:activity_recognition_flutter/activity_recognition_flutter.dart';
+import 'package:flutter/cupertino.dart';
 import 'dart:developer';
 import 'package:geolocator/geolocator.dart';
 
@@ -8,6 +9,8 @@ Stream<Activity> stream;
 StreamSubscription<Position> positionStream;
 
 void startActivityMonitor() {
+  WidgetsFlutterBinding.ensureInitialized();
+
   // Start the stream updates
   stream = ActivityRecognition.activityUpdates();
   stream.listen(onData);

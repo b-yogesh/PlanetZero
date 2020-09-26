@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:green_track_app/services/activityMonitor.dart';
+import 'package:green_track_app/services/database.dart';
 
-void main() {
+void main() async {
+  startActivityMonitor();
+  await initDatabase();
   runApp(MyApp());
 }
 
