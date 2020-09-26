@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:green_track_app/SlideNavigation.dart';
 
 class HistoryPage extends StatefulWidget {
   @override
@@ -17,10 +18,20 @@ class _HistoryPageState extends State<HistoryPage> {
             fit: BoxFit.fill,
           ),
         ),
-        child: Center(
-          child: Column(
-            children: [],
-          ),
+        child: Row(
+          children: [
+            IconButton(
+              icon: Icon(Icons.close),
+              onPressed: () {
+                SlideNavigation.goToHome();
+              },
+            ),
+            Center(
+              child: Column(
+                children: [],
+              ),
+            )
+          ],
         ),
       ),
     );
