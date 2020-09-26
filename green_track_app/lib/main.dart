@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:green_track_app/Navigation.dart';
+import 'package:green_track_app/SlideNavigation.dart';
 import 'package:green_track_app/services/activityMonitor.dart';
 import 'package:green_track_app/services/database.dart';
 
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Navigation(),
+      home: SlideNavigation(),
     );
   }
 }
