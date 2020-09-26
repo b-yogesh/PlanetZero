@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 
+=======
+import 'package:green_track_app/pages/DonatePage.dart';
+>>>>>>> ec7a3d89659efacb96312c40a28c6bfe3df582e8
 import 'package:green_track_app/widgets/emojiBadge.dart';
 import 'package:green_track_app/widgets/infoBadge.dart';
 import 'package:green_track_app/widgets/colorSplitText.dart';
@@ -69,9 +73,17 @@ class _HomePageState extends State<HomePage> {
               coloredText: "30% better",
               suffixText: " then the average",
             ),
+<<<<<<< HEAD
             Container(height: 50),
             OffsetButton(
               callback: null,
+=======
+            RaisedButton(
+              child: Text('Open route'),
+              onPressed: () {
+                DonatePage.open(context);
+              },
+>>>>>>> ec7a3d89659efacb96312c40a28c6bfe3df582e8
             ),
           ],
         ),

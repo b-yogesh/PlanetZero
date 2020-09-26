@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:countup/countup.dart';
 
-
-
 class InfoBadgeNumber extends StatelessWidget {
-
   final int wholePart;
   final int decimalPart;
   final bool useDecimal;
-  
+
   InfoBadgeNumber({this.wholePart, this.decimalPart, this.useDecimal});
 
-  int durationMultiplier = 100;
-  TextStyle infoBadgeNumberStyle = TextStyle(
+  final int durationMultiplier = 100;
+  final TextStyle infoBadgeNumberStyle = TextStyle(
     fontSize: 45,
     fontFamily: "Nunito Sans",
     fontWeight: FontWeight.w900,
@@ -28,19 +25,20 @@ class InfoBadgeNumber extends StatelessWidget {
             Countup(
               begin: 0,
               end: wholePart.toDouble(),
-              duration: Duration(milliseconds: wholePart*durationMultiplier),
+              duration: Duration(milliseconds: wholePart * durationMultiplier),
               separator: '.',
               style: infoBadgeNumberStyle,
             ),
-            if (useDecimal) Text('.',
-              style: infoBadgeNumberStyle),
-            if (useDecimal) Countup(
-              begin: 0,
-              end: decimalPart.toDouble(),
-              duration: Duration(milliseconds: decimalPart*durationMultiplier),
-              separator: '.',
-              style: infoBadgeNumberStyle,
-            ),
+            if (useDecimal) Text('.', style: infoBadgeNumberStyle),
+            if (useDecimal)
+              Countup(
+                begin: 0,
+                end: decimalPart.toDouble(),
+                duration:
+                    Duration(milliseconds: decimalPart * durationMultiplier),
+                separator: '.',
+                style: infoBadgeNumberStyle,
+              ),
           ],
         )
       ],
@@ -48,18 +46,15 @@ class InfoBadgeNumber extends StatelessWidget {
   }
 }
 
-
-
 class InfoBadge extends StatelessWidget {
-
   final int wholePart;
   final int decimalPart;
   final bool useDecimal;
   final String suffix;
-  
+
   InfoBadge({this.wholePart, this.decimalPart, this.useDecimal, this.suffix});
 
-  TextStyle infoBadgeSuffixStyle = TextStyle(
+  final TextStyle infoBadgeSuffixStyle = TextStyle(
     fontSize: 18,
     fontFamily: "Nunito Sans",
     fontWeight: FontWeight.w500,
