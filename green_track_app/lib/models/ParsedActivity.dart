@@ -1,11 +1,11 @@
-class Activity {
+class ParsedActivity {
   final int id;
   final String type;
   final DateTime start;
   final DateTime end;
   final double distance;
 
-  Activity({this.id, this.type, this.start, this.end, this.distance});
+  ParsedActivity({this.id, this.type, this.start, this.end, this.distance});
 
   Map<String, dynamic> toMap() {
     return {
@@ -17,8 +17,8 @@ class Activity {
     };
   }
 
-  Activity fromMap(Map<String, dynamic> map) {
-    return Activity(
+  ParsedActivity fromMap(Map<String, dynamic> map) {
+    return ParsedActivity(
       id: map['id'],
       type: map['type'],
       start: DateTime.parse(map['start']),

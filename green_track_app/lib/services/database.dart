@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:green_track_app/models/Activity.dart';
 import 'package:green_track_app/models/MeasuredActivity.dart';
 import 'package:green_track_app/models/MeasuredLocation.dart';
+import 'package:green_track_app/models/ParsedActivity.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -33,7 +33,7 @@ Future<void> initDatabase() async {
           timestamp TEXT
         );
 
-        CREATE TABLE activities (
+        CREATE TABLE parsedActivities (
           id INTEGER PRIMARY KEY, 
           type TEXT,
           start TEXT,
@@ -43,27 +43,20 @@ Future<void> initDatabase() async {
         """,
       );
     },
-    version: 1,
+    version: 2,
   );
+  // wait for the db onCreate to run - idk why this fixes the bug
+  await db.getVersion();
 }
 
 Future<void> insertMeasuredActivity(MeasuredActivity measuredActivity) async {
-  await db.insert(
-    'measuredActivities',
-    measuredActivity.toMap()
-  );
+  await db.insert('measuredActivities', measuredActivity.toMap());
 }
 
 Future<void> insertMeasuredLocation(MeasuredLocation measuredLocation) async {
-  await db.insert(
-    'measuredLocations',
-    measuredLocation.toMap()
-  );
+  await db.insert('measuredLocations', measuredLocation.toMap());
 }
 
-Future<void> insertActivity(Activity activity) async {
-  await db.insert(
-    'activities',
-    activity.toMap()
-  );
+Future<void> insertActivity(ParsedActivity activity) async {
+  await db.insert('parsedActivities', activity.toMap());
 }
