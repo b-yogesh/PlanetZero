@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+
 import 'package:green_track_app/widgets/emojiBadge.dart';
 import 'package:green_track_app/widgets/infoBadge.dart';
 import 'package:green_track_app/widgets/colorSplitText.dart';
+import 'package:green_track_app/widgets/offsetButton.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -66,7 +68,11 @@ class _HomePageState extends State<HomePage> {
               prefixText: "Your footprint is ",
               coloredText: "30% better",
               suffixText: " then the average",
-            )
+            ),
+            Container(height: 50),
+            OffsetButton(
+              callback: null,
+            ),
           ],
         ),
       ),
