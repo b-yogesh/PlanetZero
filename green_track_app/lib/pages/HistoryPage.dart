@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class HistoryPage extends StatefulWidget {
@@ -18,9 +17,10 @@ class _HistoryPageState extends State<HistoryPage> {
             fit: BoxFit.fill,
           ),
         ),
-        child: Column(
-          children: [
-          ],
+        child: Center(
+          child: Column(
+            children: [],
+          ),
         ),
       ),
     );
