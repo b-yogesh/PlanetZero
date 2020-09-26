@@ -16,7 +16,9 @@ class EmojiBadge extends StatelessWidget {
       children: [
         SizedBox(
           child: Image(
-            image: AssetImage("assets/backgrounds/emojiHappy.png"),
+            image: level == 0 ? AssetImage("assets/backgrounds/emojiHappy.png") :
+                  level == 1 ? AssetImage("assets/backgrounds/emojiNeutral.png") :
+                  AssetImage("assets/backgrounds/emojiSad.png"),
             fit:BoxFit.fill
           ),
           width: 20,
@@ -29,7 +31,7 @@ class EmojiBadge extends StatelessWidget {
             style: TextStyle(
               color: Colors.white,
               fontFamily: "Montserrat",
-              fontSize: 12,
+              fontSize: 13,
               fontWeight: FontWeight.w700,
             ),
           ),
@@ -40,7 +42,7 @@ class EmojiBadge extends StatelessWidget {
             color: Colors.white,
             fontFamily: "Montserrat",
             fontSize: 9,
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.w700,
           ),
         ),
       ],

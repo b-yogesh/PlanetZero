@@ -55,6 +55,8 @@ flutter:
   assets:
     - assets/backgrounds/1.png
     - assets/backgrounds/emojiHappy.png
+    - assets/backgrounds/emojiNeutral.png
+    - assets/backgrounds/emojiSad.png
 
   fonts:
     - family: NunitoSans
