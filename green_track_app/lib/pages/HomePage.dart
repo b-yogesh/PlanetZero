@@ -4,6 +4,7 @@ import 'package:green_track_app/widgets/emojiBadge.dart';
 import 'package:green_track_app/widgets/infoBadge.dart';
 import 'package:green_track_app/widgets/colorSplitText.dart';
 import 'package:green_track_app/widgets/offsetButton.dart';
+import 'package:green_track_app/widgets/swipeUpIndicator.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -71,7 +72,8 @@ class _HomePageState extends State<HomePage> {
             ),
             OffsetButton(
               callback: DonatePage.open,
-            )
+            ),
+            SwipeUpIndicator()
           ],
         ),
       ),
