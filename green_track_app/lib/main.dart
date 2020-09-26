@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:green_track_app/services/activityMonitor.dart';
 import 'package:green_track_app/services/database.dart';
+
 import 'package:green_track_app/widgets/infoBadge.dart';
+import 'package:green_track_app/widgets/emojiBadge.dart';
 
 void main() async {
   await initDatabase();
@@ -74,24 +76,29 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         child: Column(
           children: [
-            Center(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  InfoBadge(
-                    wholePart: 3,
-                    decimalPart: 4,
-                    useDecimal: true,
-                    suffix: "test",
-                  ),
-                  // InfoBadge(
-                  //   wholePart: 7,
-                  //   useDecimal: false,
-                  //   suffix: "test",
-                  // ),
-                ],
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                InfoBadge(
+                  wholePart: 3,
+                  decimalPart: 4,
+                  useDecimal: true,
+                  suffix: "test",
+                ),
+                // InfoBadge(
+                //   wholePart: 7,
+                //   useDecimal: false,
+                //   suffix: "test",
+                // ),
+              ],
             ),
+            Container(height:50),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                EmojiBadge()
+              ],
+            )
           ],
         ),
       ),
