@@ -1,32 +1,28 @@
-import 'dart:async';
 import 'package:activity_recognition_flutter/activity_recognition_flutter.dart';
 import 'package:flutter/cupertino.dart';
 import 'dart:developer';
 import 'package:geolocator/geolocator.dart';
 
-Stream<Activity> stream;
-
-StreamSubscription<Position> positionStream;
-
 void startActivityMonitor() {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Start the stream updates
-  stream = ActivityRecognition.activityUpdates();
-  stream.listen(onData);
-  // log("Hello world");
-  positionStream =
-  getPositionStream(desiredAccuracy: LocationAccuracy.high).listen((Position position) {
-  print(position == null
-      ? 'Unknown'
-      : position.latitude.toString() + ', ' + position.longitude.toString());
-});
+  // Start the activity stream updates
+  ActivityRecognition.activityUpdates().listen(onActivityData);
+
+  // Start the position stream updates
+  getPositionStream(desiredAccuracy: LocationAccuracy.high).listen(onPositionData);
 }
 
-void onData(Activity activity) {
+void onActivityData(Activity activity) {
   // Do something with the activity
   var type = activity.type;
   var confidence = activity.confidence;
 
   log(type.toString() + " " + confidence.toString());
+}
+
+void onPositionData(Position position) {
+  print(position == null
+      ? 'Unknown'
+      : position.latitude.toString() + ', ' + position.longitude.toString());
 }
