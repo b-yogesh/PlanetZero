@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:green_track_app/services/activityMonitor.dart';
 import 'package:green_track_app/services/database.dart';
+import 'package:green_track_app/widgets/infoBadge.dart';
 
 void main() async {
   await initDatabase();
@@ -54,12 +55,8 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                'ABC',
-              ),
-              Text(
-                'DEF',
-              ),
+              InfoBadge(),
+              InfoBadge(),
             ],
           ),
         ),
