@@ -8,14 +8,17 @@ class EmojiBadge extends StatelessWidget {
   final String mainText;
   final String suffix;
 
-  EmojiBadge({this.level, this.mainText, this.suffix})
+  EmojiBadge({this.level, this.mainText, this.suffix});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         SizedBox(
-          child: Image(image: AssetImage("assets/backgrounds/emojiHappy.png")),
+          child: Image(
+            image: AssetImage("assets/backgrounds/emojiHappy.png"),
+            fit:BoxFit.fill
+          ),
           width: 20,
           height: 20,
         ),

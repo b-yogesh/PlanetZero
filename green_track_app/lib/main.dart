@@ -79,7 +79,10 @@ class _HomePageState extends State<HomePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                EmojiBadge()
+                EmojiBadge(
+                  mainText: "2.3km",
+                  suffix: "kg CO₂",
+                )
               ],
             )
           ],
