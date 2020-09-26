@@ -26,19 +26,17 @@ class MyApp extends StatelessWidget {
 class Navigation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: PageView(
-        scrollDirection: Axis.vertical,
-        children: [
-          MyHomePage(),
-          Container(
-            color: Colors.cyan,
-            child: SingleChildScrollView(
-              child: Text("fd ffdk"),
-            ),
+    return PageView(
+      scrollDirection: Axis.vertical,
+      children: [
+        MyHomePage(),
+        Container(
+          color: Colors.cyan,
+          child: SingleChildScrollView(
+            child: Text("fd ffdk"),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
