@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:green_track_app/SlideNavigation.dart';
 import 'package:green_track_app/services/activityMonitor.dart';
 import 'package:green_track_app/services/database.dart';
@@ -6,6 +7,9 @@ import 'package:green_track_app/services/database.dart';
 void main() async {
   await initDatabase();
   startActivityMonitor();
+
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Colors.black));
+
   runApp(MyApp());
 }
 

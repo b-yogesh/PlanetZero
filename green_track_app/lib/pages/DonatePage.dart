@@ -47,7 +47,6 @@ class _DonatePageState extends State<DonatePage> {
                 learnMoreUrl: "https://www.google.com",
                 offsetUrl: "https://www.google.com",
               ),
-              
               OffsettingPost(
                 bulletPoints: [
                   "test 1",
@@ -59,7 +58,6 @@ class _DonatePageState extends State<DonatePage> {
                 learnMoreUrl: "https://www.google.com",
                 offsetUrl: "https://www.google.com",
               ),
-              
               OffsettingPost(
                 bulletPoints: [
                   "test 1",
