@@ -34,7 +34,23 @@ class MeasuredLocation {
     };
   }
 
-  MeasuredLocation fromMap(Map<String, dynamic> map) {
+  static String createSQL() {
+    return """
+      CREATE TABLE measuredLocations (
+        id INTEGER PRIMARY KEY, 
+        latitude REAL,
+        longtitude REAL,
+        altitude REAL,
+        heading REAL,
+        accuracy REAL,
+        speed REAL,
+        speedAccuracy REAL,
+        timestamp TEXT
+      );
+    """;
+  }
+
+  static MeasuredLocation fromMap(Map<String, dynamic> map) {
     return MeasuredLocation(
       id: map['id'],
       latitude: map['latitude'],

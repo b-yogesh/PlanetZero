@@ -15,7 +15,18 @@ class MeasuredActivity {
     };
   }
 
-  MeasuredActivity fromMap(Map<String, dynamic> map) {
+  static String createSQL() {
+    return """
+      CREATE TABLE measuredActivities (
+        id INTEGER PRIMARY KEY, 
+        type TEXT,
+        confidence INTEGER,
+        timestamp TEXT
+      );
+    """;
+  }
+
+  static MeasuredActivity fromMap(Map<String, dynamic> map) {
     return MeasuredActivity(
       id: map['id'],
       type: map['type'],

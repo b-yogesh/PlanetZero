@@ -11,39 +11,12 @@ Future<void> initDatabase() async {
   WidgetsFlutterBinding.ensureInitialized();
   db = await openDatabase(
     join(await getDatabasesPath(), 'database.db'),
-    onCreate: (db, version) {
-      return db.execute(
-        """
-        CREATE TABLE measuredActivities (
-          id INTEGER PRIMARY KEY, 
-          type TEXT,
-          confidence INTEGER,
-          timestamp TEXT
-        );
-
-        CREATE TABLE measuredLocations (
-          id INTEGER PRIMARY KEY, 
-          latitude REAL,
-          longtitude REAL,
-          altitude REAL,
-          heading REAL,
-          accuracy REAL,
-          speed REAL,
-          speedAccuracy REAL,
-          timestamp TEXT
-        );
-
-        CREATE TABLE parsedActivities (
-          id INTEGER PRIMARY KEY, 
-          type TEXT,
-          start TEXT,
-          end TEXT,
-          distance REAL
-        );
-        """,
-      );
+    onCreate: (db, version) async {
+      await db.execute(MeasuredActivity.createSQL());
+      await db.execute(MeasuredLocation.createSQL());
+      await db.execute(ParsedActivity.createSQL());
     },
-    version: 2,
+    version: 3,
   );
   // wait for the db onCreate to run - idk why this fixes the bug
   await db.getVersion();
@@ -57,6 +30,13 @@ Future<void> insertMeasuredLocation(MeasuredLocation measuredLocation) async {
   await db.insert('measuredLocations', measuredLocation.toMap());
 }
 
-Future<void> insertActivity(ParsedActivity activity) async {
+Future<void> insertParsedActivity(ParsedActivity activity) async {
   await db.insert('parsedActivities', activity.toMap());
+}
+
+Future<List<ParsedActivity>> parsedActivities() async {
+  final List<Map<String, dynamic>> maps = await db.query('parsedActivities');
+  return List.generate(maps.length, (i) {
+    return ParsedActivity.fromMap(maps[i]);
+  });
 }

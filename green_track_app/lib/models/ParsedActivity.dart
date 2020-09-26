@@ -17,7 +17,19 @@ class ParsedActivity {
     };
   }
 
-  ParsedActivity fromMap(Map<String, dynamic> map) {
+  static String createSQL() {
+    return """
+      CREATE TABLE parsedActivities (
+        id INTEGER PRIMARY KEY, 
+        type TEXT,
+        start TEXT,
+        end TEXT,
+        distance REAL
+      );
+    """;
+  }
+
+  static ParsedActivity fromMap(Map<String, dynamic> map) {
     return ParsedActivity(
       id: map['id'],
       type: map['type'],
