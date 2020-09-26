@@ -69,12 +69,9 @@ class _HomePageState extends State<HomePage> {
               coloredText: "30% better",
               suffixText: " then the average",
             ),
-            RaisedButton(
-              child: Text('Open route'),
-              onPressed: () {
-                DonatePage.open(context);
-              },
-            ),
+            OffsetButton(
+              callback: DonatePage.open,
+            )
           ],
         ),
       ),

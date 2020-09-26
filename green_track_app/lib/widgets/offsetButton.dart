@@ -15,7 +15,7 @@ class OffsetButton extends StatelessWidget {
       child: FlatButton(
         onPressed: () {
           if (callback != null) {
-            callback();
+            callback(context);
           }
         },
         color: Color(0xffEAFFE0),
