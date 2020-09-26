@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:green_track_app/pages/HomePage.dart';
+import 'package:green_track_app/pages/HistoryPage.dart';
 import 'package:green_track_app/services/activityMonitor.dart';
 import 'package:green_track_app/services/database.dart';
 
@@ -28,41 +30,22 @@ class MyApp extends StatelessWidget {
 class Navigation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: PageView(
-        scrollDirection: Axis.vertical,
-        children: [
-          MyHomePage(),
-          Container(
-            color: Colors.cyan,
-            child: SingleChildScrollView(
-              child: Text("fd ffdk"),
-            ),
-          ),
-        ],
-      ),
+    return PageView(
+      scrollDirection: Axis.vertical,
+      children: [
+        HomePage(),
+        HistoryPage(),
+      ],
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  final String title;
-
+class HomePage extends StatefulWidget {
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
