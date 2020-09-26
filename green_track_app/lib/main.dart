@@ -8,6 +8,10 @@ void main() async {
   await initDatabase();
   startActivityMonitor();
 
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+  ]);
+
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Colors.black));
 
   runApp(MyApp());
