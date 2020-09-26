@@ -5,31 +5,41 @@ class TimelineItem extends StatelessWidget {
   final String subtitle;
   final double emission;
   final Color color;
+  final Color foregroundColor;
   final double height;
 
-  TimelineItem({this.title, this.subtitle, this.color, this.emission, this.height});
+  TimelineItem({
+    this.title,
+    this.subtitle,
+    this.color,
+    this.foregroundColor,
+    this.emission,
+    this.height,
+  });
 
   final TextStyle titleStyle = TextStyle(
-    fontSize: 28,
-    fontFamily: "Nunito Sans",
+    fontSize: 24,
+    fontFamily: "Montserrat",
     fontWeight: FontWeight.w500,
   );
 
   final TextStyle subtitleStyle = TextStyle(
     fontSize: 16,
-    fontFamily: "Nunito Sans",
+    fontWeight: FontWeight.w200,
+    fontFamily: "Montserrat",
   );
 
   final TextStyle co2Style = TextStyle(
     fontSize: 36,
-    fontFamily: "Nunito Sans",
+    fontWeight: FontWeight.w200,
+    fontFamily: "Montserrat",
   );
 
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     return Container(
-        margin: EdgeInsets.only(bottom: 10),
+        margin: EdgeInsets.only(bottom: 15),
         decoration: new BoxDecoration(
           color: color,
           borderRadius: new BorderRadius.all(Radius.circular(10.0)),
@@ -45,7 +55,7 @@ class TimelineItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(title, style: titleStyle),
-                  Container(height: 10),
+                  Container(height: 14),
                   Text(subtitle, style: subtitleStyle),
                 ],
               ),

@@ -77,7 +77,7 @@ class _HomePageState extends State<HomePage> {
               size: 13,
               prefixText: "Your footprint is ",
               coloredText: widget.percentageBetterThanAverage.toString() + "% better",
-              suffixText: " then the average",
+              suffixText: " than the average",
             ),
             Expanded(
               child: Column(

@@ -12,69 +12,71 @@ class _HistoryPageState extends State<HistoryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          color: Colors.black,
-          image: DecorationImage(
-            image: AssetImage("assets/backgrounds/1.png"),
-            fit: BoxFit.fill,
+      body: SingleChildScrollView(
+        child: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment(0.8, 0.0),
+              colors: [const Color(0xFF333300), const Color(0xFF000000)],
+            ),
           ),
-        ),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              IconButton(
-                icon: Icon(Icons.close, color: Colors.white),
-                onPressed: () {
-                  SlideNavigation.goToHome();
-                },
-              ),
-              Column(
-                children: [
-                  Timeline(
-                    title: "Today",
-                    height: 300,
-                    children: [
-                      TimelineItem(
-                        title: "Walking",
-                        subtitle: '650m',
-                        height: 95,
-                        color: Color(0xff26FF97),
-                        emission: 0,
-                      ),
-                      TimelineItem(
-                        title: "Public Transport",
-                        subtitle: '3.2km',
-                        height: 170,
-                        color: Color(0xffE1FFE0),
-                        emission: 0.3,
-                      ),
-                    ],
-                  ),
-                  Timeline(
-                    title: "Yesterday",
-                    height: 500,
-                    children: [
-                      TimelineItem(
-                        title: "Car",
-                        subtitle: '65.4km',
-                        height: 250,
-                        color: Color(0xffF13737),
-                        emission: 6.5,
-                      ),
-                      TimelineItem(
-                        title: "Walking",
-                        subtitle: '1.3km',
-                        height: 200,
-                        color: Color(0xff26FF97),
-                        emission: 0,
-                      ),
-                    ],
-                  )
-                ],
-              ),
-            ],
+          child: SafeArea(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                IconButton(
+                  icon: Icon(Icons.close, color: Colors.white),
+                  onPressed: () {
+                    SlideNavigation.goToHome();
+                  },
+                ),
+                Column(
+                  children: [
+                    Timeline(
+                      title: "Today",
+                      height: 300,
+                      children: [
+                        TimelineItem(
+                          title: "Walking",
+                          subtitle: '650m',
+                          height: 95,
+                          color: Color(0xff26FF97),
+                          emission: 0,
+                        ),
+                        TimelineItem(
+                          title: "Public Transport",
+                          subtitle: '3.2km',
+                          height: 170,
+                          color: Color(0xffE1FFE0),
+                          emission: 0.3,
+                        ),
+                      ],
+                    ),
+                    Timeline(
+                      title: "Yesterday",
+                      height: 500,
+                      children: [
+                        TimelineItem(
+                          title: "Car",
+                          subtitle: '65.4km',
+                          height: 250,
+                          color: Color(0xffF13737),
+                          emission: 6.5,
+                        ),
+                        TimelineItem(
+                          title: "Walking",
+                          subtitle: '1.3km',
+                          height: 200,
+                          color: Color(0xff26FF97),
+                          emission: 0,
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

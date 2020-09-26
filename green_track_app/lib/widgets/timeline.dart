@@ -10,7 +10,7 @@ class Timeline extends StatelessWidget {
 
   final TextStyle titleStyle = TextStyle(
     fontSize: 16,
-    fontFamily: "Nunito Sans",
+    fontFamily: "Montserrat",
     fontWeight: FontWeight.w500,
     color: Colors.grey,
   );
