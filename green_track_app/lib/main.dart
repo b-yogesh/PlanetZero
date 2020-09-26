@@ -18,7 +18,27 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: Navigation(),
+    );
+  }
+}
+
+class Navigation extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: PageView(
+        scrollDirection: Axis.vertical,
+        children: [
+          MyHomePage(),
+          Container(
+            color: Colors.cyan,
+            child: SingleChildScrollView(
+              child: Text("fd ffdk"),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
