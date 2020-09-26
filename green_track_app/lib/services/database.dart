@@ -28,6 +28,8 @@ Future<void> initDatabase() async {
           altitude REAL,
           heading REAL,
           accuracy REAL,
+          speed REAL,
+          speedAccuracy REAL,
           timestamp TEXT
         );
 
@@ -52,7 +54,7 @@ Future<void> insertMeasuredActivity(MeasuredActivity measuredActivity) async {
   );
 }
 
-Future<void> insertMeasuredPosition(MeasuredLocation measuredLocation) async {
+Future<void> insertMeasuredLocation(MeasuredLocation measuredLocation) async {
   await db.insert(
     'measuredLocations',
     measuredLocation.toMap()

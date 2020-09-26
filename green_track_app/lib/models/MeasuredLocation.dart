@@ -5,6 +5,8 @@ class MeasuredLocation {
   final double altitude;
   final double heading;
   final double accuracy;
+  final double speed;
+  final double speedAccuracy;
   final DateTime timestamp;
 
   MeasuredLocation(
@@ -14,6 +16,8 @@ class MeasuredLocation {
       this.altitude,
       this.heading,
       this.accuracy,
+      this.speed,
+      this.speedAccuracy,
       this.timestamp});
 
   Map<String, dynamic> toMap() {
@@ -24,6 +28,8 @@ class MeasuredLocation {
       'altitude': altitude,
       'heading': heading,
       'accuracy': accuracy,
+      'speed': speed,
+      'speedAccuracy': speedAccuracy,
       'timestamp': timestamp,
     };
   }
