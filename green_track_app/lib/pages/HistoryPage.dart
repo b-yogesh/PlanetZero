@@ -21,7 +21,7 @@ class _HistoryPageState extends State<HistoryPage> {
         child: Row(
           children: [
             IconButton(
-              icon: Icon(Icons.close),
+              icon: Icon(Icons.close, color: Colors.white),
               onPressed: () {
                 SlideNavigation.goToHome();
               },

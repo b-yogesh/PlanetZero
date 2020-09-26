@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:green_track_app/SlideNavigation.dart';
 
 class DonatePage extends StatefulWidget {
   @override
@@ -16,10 +17,18 @@ class _DonatePageState extends State<DonatePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        child: Center(
+      body: SafeArea(
+        child: Container(
           child: Column(
-            children: [Text("hello world")],
+            children: [
+              IconButton(
+                icon: Icon(Icons.close),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
+              Text("hello world")
+            ],
           ),
         ),
       ),
