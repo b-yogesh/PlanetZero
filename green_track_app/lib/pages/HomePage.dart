@@ -7,6 +7,11 @@ import 'package:green_track_app/widgets/offsetButton.dart';
 import 'package:green_track_app/widgets/swipeUpIndicator.dart';
 
 class HomePage extends StatefulWidget {
+
+  double co2Amount = 5.32;
+  int treeAmount = 7;
+  int percentageBetterThanAverage = 30;
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -25,20 +30,21 @@ class _HomePageState extends State<HomePage> {
         ),
         child: Column(
           children: [
+            Container(height:100),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 InfoBadge(
-                  wholePart: 3,
-                  decimalPart: 4,
+                  wholePart: widget.co2Amount.truncate(),
+                  decimalPart: int.parse(widget.co2Amount.toString().split(".")[1]),
                   useDecimal: true,
                   suffix: "test",
                 ),
-                // InfoBadge(
-                //   wholePart: 7,
-                //   useDecimal: false,
-                //   suffix: "test",
-                // ),
+                InfoBadge(
+                  wholePart: widget.treeAmount,
+                  useDecimal: false,
+                  suffix: "test",
+                ),
               ],
             ),
             Container(height: 50),
@@ -50,10 +56,13 @@ class _HomePageState extends State<HomePage> {
                   suffix: "kg CO₂",
                   level: 0,
                 ),
-                EmojiBadge(
-                  mainText: "2.3km",
-                  suffix: "kg CO₂",
-                  level: 1,
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                  child: EmojiBadge(
+                    mainText: "2.3km",
+                    suffix: "kg CO₂",
+                    level: 1,
+                  ),
                 ),
                 EmojiBadge(
                   mainText: "2.3km",
@@ -62,18 +71,30 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
-            Container(height: 50),
+            Container(height: 30),
             ColorSplitText(
               color: Colors.red,
               size: 13,
               prefixText: "Your footprint is ",
-              coloredText: "30% better",
+              coloredText: widget.percentageBetterThanAverage.toString() + "% better",
               suffixText: " then the average",
             ),
-            OffsetButton(
-              callback: DonatePage.open,
-            ),
-            SwipeUpIndicator()
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(),
+                  OffsetButton(
+                    callback: DonatePage.open,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom:20.0),
+                    child: SwipeUpIndicator(),
+                  ),
+                ],
+              ),
+            )
+            
           ],
         ),
       ),
