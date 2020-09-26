@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:countup/countup.dart';
+import 'dart:math';
 
 class InfoBadgeNumber extends StatelessWidget {
   final int wholePart;
@@ -25,7 +26,7 @@ class InfoBadgeNumber extends StatelessWidget {
             Countup(
               begin: 0,
               end: wholePart.toDouble(),
-              duration: Duration(milliseconds: wholePart * durationMultiplier),
+              duration: Duration(milliseconds: min(wholePart * durationMultiplier, 850)),
               separator: '.',
               style: infoBadgeNumberStyle,
             ),
@@ -35,7 +36,7 @@ class InfoBadgeNumber extends StatelessWidget {
                 begin: 0,
                 end: decimalPart.toDouble(),
                 duration:
-                    Duration(milliseconds: decimalPart * durationMultiplier),
+                    Duration(milliseconds: min(decimalPart * durationMultiplier, 850)),
                 separator: '.',
                 style: infoBadgeNumberStyle,
               ),
