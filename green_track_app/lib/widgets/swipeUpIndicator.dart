@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-
-
 class SwipeUpIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

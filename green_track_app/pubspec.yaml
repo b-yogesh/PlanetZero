@@ -26,6 +26,7 @@ dependencies:
 
   geolocator: ^6.0.0+4
   activity_recognition_flutter: ^1.2.3
+  dotted_line: ^2.0.1
 
   countup: ^0.1.2
   url_launcher: ^5.7.2
