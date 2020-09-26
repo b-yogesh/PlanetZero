@@ -30,7 +30,21 @@ class MeasuredLocation {
       'accuracy': accuracy,
       'speed': speed,
       'speedAccuracy': speedAccuracy,
-      'timestamp': timestamp,
+      'timestamp': timestamp.toString(),
     };
+  }
+
+  MeasuredLocation fromMap(Map<String, dynamic> map) {
+    return MeasuredLocation(
+      id: map['id'],
+      latitude: map['latitude'],
+      longitude: map['longitude'],
+      altitude: map['altitude'],
+      heading: map['heading'],
+      accuracy: map['accuracy'],
+      speed: map['speed'],
+      speedAccuracy: map['speedAccuracy'],
+      timestamp: DateTime.parse(map['timestamp']),
+    );
   }
 }

@@ -11,7 +11,16 @@ class MeasuredActivity {
       'id': id,
       'type': type,
       'confidence': confidence,
-      'timestamp': timestamp,
+      'timestamp': timestamp.toString(),
     };
+  }
+
+  MeasuredActivity fromMap(Map<String, dynamic> map) {
+    return MeasuredActivity(
+      id: map['id'],
+      type: map['type'],
+      confidence: map['confidence'],
+      timestamp: DateTime.parse(map['timestamp']),
+    );
   }
 }
