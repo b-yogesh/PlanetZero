@@ -46,19 +46,33 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
+          color: Colors.black,
           image: DecorationImage(
             image: AssetImage("assets/backgrounds/1.png"),
             fit: BoxFit.fill,
           ),
         ),
-        child: Center(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              InfoBadge(),
-              InfoBadge(),
-            ],
-          ),
+        child: Column(
+          children: [
+            Center(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  InfoBadge(
+                    wholePart: 3,
+                    decimalPart: 4,
+                    useDecimal: true,
+                    suffix: "test",
+                  ),
+                  // InfoBadge(
+                  //   wholePart: 7,
+                  //   useDecimal: false,
+                  //   suffix: "test",
+                  // ),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );
