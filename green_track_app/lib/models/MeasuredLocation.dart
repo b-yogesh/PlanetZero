@@ -24,7 +24,7 @@ class MeasuredLocation {
     return {
       'id': id,
       'latitude': latitude,
-      'longitude': longitude,
+      'longtitude': longitude,
       'altitude': altitude,
       'heading': heading,
       'accuracy': accuracy,

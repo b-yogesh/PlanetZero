@@ -16,10 +16,8 @@ Future<void> initDatabase() async {
       await db.execute(MeasuredLocation.createSQL());
       await db.execute(ParsedActivity.createSQL());
     },
-    version: 3,
+    version: 5,
   );
-  // wait for the db onCreate to run - idk why this fixes the bug
-  await db.getVersion();
 }
 
 Future<void> insertMeasuredActivity(MeasuredActivity measuredActivity) async {
