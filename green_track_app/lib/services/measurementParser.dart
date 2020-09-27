@@ -9,13 +9,15 @@ import 'package:green_track_app/services/database.dart';
 // 2. in case of vehicle, send location to be analyzed by the AI
 // 3. add a ParsedActivity in the databse (DONE)
 
-void parseMeasurements() async {
-  while (await parseNextMeasurementSession()) {}
+void parseMeasurementsAndGetCurrent() async {
+  var result;
+  while ((result = await parseNextMeasurementSession()) == null) {}
+  return result;
 }
 
-Future<bool> parseNextMeasurementSession() async {
+Future<ParsedActivity> parseNextMeasurementSession() async {
   var activities = await measuredActivities();
-  if (activities.length == 0) return false;
+  if (activities.length == 0) return null;
 
   String type;
   DateTime timestamp;
@@ -24,24 +26,36 @@ Future<bool> parseNextMeasurementSession() async {
     if (activity.type == type || type == null) {
       matchingActivities.add(activity);
     } else if (DateTime.now().difference(timestamp).inMinutes >= 5) {
-      break;
+      var parsed = await getParsedActivity(matchingActivities);
+      await commitParsedActivity(parsed);
+      return null;
     }
   }
 
+  return await getParsedActivity(matchingActivities);
+}
+
+Future<ParsedActivity> getParsedActivity(
+    List<MeasuredActivity> matchingActivities) async {
+  var type = matchingActivities.first.type;
   var start = matchingActivities.first.timestamp;
   var end = matchingActivities.last.timestamp;
   var distance = await getDistanceTravelled(start, end);
 
-  var parsedActivity = ParsedActivity(
+  return ParsedActivity(
     type: type,
     start: start,
     end: end,
     distance: distance,
   );
-  
+}
+
+Future<void> commitParsedActivity(ParsedActivity parsedActivity) async {
   await insertParsedActivity(parsedActivity);
-  await markMeasuredActivitiesAsParsed(start, end);
-  return true;
+  await markMeasuredActivitiesAsParsed(
+    parsedActivity.start,
+    parsedActivity.end,
+  );
 }
 
 Future<double> getDistanceTravelled(DateTime from, DateTime to) async {
