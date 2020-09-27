@@ -72,9 +72,7 @@ class _HistoryPageState extends State<HistoryPage> {
                           Text("Rank", style: infoBadgeTitleTextStyle),
                           Container(height: 10),
                           InfoBadgeInverted(
-                            wholePart: 1,
-                            decimalPart: 2,
-                            useDecimal: true,
+                            value: "7%",
                             suffix: "top",
                             smallSuffix: true,
                           )
@@ -85,8 +83,8 @@ class _HistoryPageState extends State<HistoryPage> {
                           Text("Yearly", style: infoBadgeTitleTextStyle),
                           Container(height: 10),
                           InfoBadge(
-                            wholePart: 1,
-                            decimalPart: 2,
+                            wholePart: 12,
+                            decimalPart: 5,
                             useDecimal: true,
                             suffix: "kg CO₂",
                             smallSuffix: true,
@@ -99,9 +97,7 @@ class _HistoryPageState extends State<HistoryPage> {
                           Text("Monthly", style: infoBadgeTitleTextStyle),
                           Container(height: 10),
                           InfoBadgeInverted(
-                            wholePart: 1,
-                            decimalPart: 2,
-                            useDecimal: true,
+                            value: "21%",
                             suffix: "improved",
                             smallSuffix: true,
                           )
