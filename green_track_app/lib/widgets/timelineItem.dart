@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:green_track_app/models/ParsedActivity.dart';
+import 'package:green_track_app/services/analytics.dart';
 
 class TimelineItem extends StatelessWidget {
   final String title;
@@ -28,6 +29,7 @@ class TimelineItem extends StatelessWidget {
       subtitle: (activity.distance / 1000).toString() + "m",
       foregroundColor: Colors.white,
       height: 95.0 + activity.end.difference(activity.start).inHours * 20,
+      emission: getEmissionForActivity(activity),
     );
   }
 
