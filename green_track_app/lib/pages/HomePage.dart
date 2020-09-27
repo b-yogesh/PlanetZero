@@ -150,7 +150,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               ),
               Container(height: 40),
               ColorSplitText(
-                color: Colors.red,
+                color: Color(0xff26FF97),
                 size: 13,
                 prefixText: "Your footprint is ",
                 coloredText: widget.percentageBetterThanAverage.toString() + "% better",
