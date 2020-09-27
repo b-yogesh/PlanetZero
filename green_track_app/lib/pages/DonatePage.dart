@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:green_track_app/widgets/offsetingPost.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 
-
 class DonatePage extends StatefulWidget {
   @override
   _DonatePageState createState() => _DonatePageState();
@@ -16,14 +15,14 @@ class DonatePage extends StatefulWidget {
 }
 
 class _DonatePageState extends State<DonatePage> {
-
   initState() {
     super.initState();
     FlutterStatusbarcolor.setStatusBarWhiteForeground(false);
   }
-  
+
   @override
   dispose() {
+    super.dispose();
     FlutterStatusbarcolor.setStatusBarWhiteForeground(true);
   }
 
@@ -39,7 +38,7 @@ class _DonatePageState extends State<DonatePage> {
                 children: [
                   Container(),
                   Padding(
-                    padding: const EdgeInsets.only(top:10.0, right:5),
+                    padding: const EdgeInsets.only(top: 10.0, right: 5),
                     child: IconButton(
                       icon: Icon(Icons.close),
                       onPressed: () {
@@ -82,7 +81,7 @@ class _DonatePageState extends State<DonatePage> {
                 learnMoreUrl: "https://www.google.com",
                 offsetUrl: "https://www.google.com",
               ),
-              Container(height:5)
+              Container(height: 5)
             ],
           ),
         ),
