@@ -24,7 +24,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     Animation<double> _animation;
 
     AnimationController _fadeController;
-    Animation<double> _fadeAnimation;
   
     initState() {
       super.initState();
