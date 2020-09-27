@@ -25,14 +25,14 @@ class EmojiBadge extends StatelessWidget {
           height: 20,
         ),
         Padding(
-          padding: const EdgeInsets.only(top:7, bottom:0),
+          padding: const EdgeInsets.only(top:10, bottom:0),
           child: Text(
             mainText,
             style: TextStyle(
               color: Colors.white,
               fontFamily: "Montserrat",
               fontSize: 13,
-              fontWeight: FontWeight.w700,
+              fontWeight: FontWeight.w900,
             ),
           ),
         ),
@@ -41,7 +41,7 @@ class EmojiBadge extends StatelessWidget {
           style: TextStyle(
             color: Colors.white,
             fontFamily: "Montserrat",
-            fontSize: 9,
+            fontSize: 10,
             fontWeight: FontWeight.w700,
           ),
         ),
