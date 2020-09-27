@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:green_track_app/SlideNavigation.dart';
+import 'package:green_track_app/models/ParsedActivity.dart';
 import 'package:green_track_app/widgets/colorSplitText.dart';
 import 'package:green_track_app/widgets/infoBadge.dart';
 import 'package:green_track_app/widgets/timeline.dart';
 import 'package:green_track_app/widgets/timelineItem.dart';
+import 'package:green_track_app/services/measurementParser.dart';
 
 class HistoryPage extends StatefulWidget {
   @override
@@ -11,12 +13,22 @@ class HistoryPage extends StatefulWidget {
 }
 
 class _HistoryPageState extends State<HistoryPage> {
+  ParsedActivity _currentActivity;
+
   final TextStyle infoBadgeTitleTextStyle = TextStyle(
     color: Colors.white,
     fontFamily: "Nunito Sans",
     fontWeight: FontWeight.w700,
     fontSize: 15,
   );
+
+  initState() async {
+    super.initState();
+    var currentActivity = await parseMeasurementsAndGetCurrent();
+    setState(() {
+      _currentActivity = currentActivity;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +40,7 @@ class _HistoryPageState extends State<HistoryPage> {
             Align(
               alignment: Alignment.topCenter,
               child: Container(
-                height: MediaQuery.of(context).size.height*0.25,
+                height: MediaQuery.of(context).size.height * 0.25,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     begin: Alignment.bottomCenter,
@@ -50,7 +62,7 @@ class _HistoryPageState extends State<HistoryPage> {
                     children: [
                       Container(),
                       Padding(
-                        padding: const EdgeInsets.only(top:10.0, right:5),
+                        padding: const EdgeInsets.only(top: 10.0, right: 5),
                         child: IconButton(
                           icon: Icon(Icons.close),
                           color: Colors.white,
@@ -61,7 +73,7 @@ class _HistoryPageState extends State<HistoryPage> {
                       ),
                     ],
                   ),
-                  Container(height:20),
+                  Container(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -152,12 +164,11 @@ class _HistoryPageState extends State<HistoryPage> {
                       )
                     ],
                   ),
-                  Container(height:20),
+                  Container(height: 20),
                   Column(
                     children: [
                       Timeline(
                         title: "Today",
-                        height: 300,
                         children: [
                           TimelineItem(
                             title: "Walking",
@@ -179,7 +190,6 @@ class _HistoryPageState extends State<HistoryPage> {
                       ),
                       Timeline(
                         title: "Yesterday",
-                        height: 500,
                         children: [
                           TimelineItem(
                             title: "Car",

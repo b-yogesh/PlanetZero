@@ -5,11 +5,7 @@ import 'package:green_track_app/models/MeasuredLocation.dart';
 import 'package:green_track_app/models/ParsedActivity.dart';
 import 'package:green_track_app/services/database.dart';
 
-// 1. detect "sessions" of activies (DONE)
-// 2. in case of vehicle, send location to be analyzed by the AI
-// 3. add a ParsedActivity in the databse (DONE)
-
-void parseMeasurementsAndGetCurrent() async {
+Future<ParsedActivity> parseMeasurementsAndGetCurrent() async {
   var result;
   while ((result = await parseNextMeasurementSession()) == null) {}
   return result;

@@ -1,12 +1,14 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:dotted_line/dotted_line.dart';
+import 'package:green_track_app/widgets/timelineItem.dart';
 
 class Timeline extends StatelessWidget {
   final String title;
-  final double height;
-  final List<Widget> children;
+  final List<TimelineItem> children;
 
-  Timeline({this.title, this.height, this.children});
+  Timeline({this.title, this.children});
 
   final TextStyle titleStyle = TextStyle(
     fontSize: 12,
@@ -17,6 +19,7 @@ class Timeline extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var height = max<double>(100.0, children.fold(0, (prev, curr) => prev + curr.height + 15));
     return Row(
       children: [
         Container(width: 20),
@@ -43,7 +46,7 @@ class Timeline extends StatelessWidget {
                 ),
               ],
             ),
-            Container(height:10)
+            Container(height: 10)
           ],
         )
       ],
