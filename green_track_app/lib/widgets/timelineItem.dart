@@ -17,26 +17,29 @@ class TimelineItem extends StatelessWidget {
     this.height,
   });
 
-  final TextStyle titleStyle = TextStyle(
-    fontSize: 24,
-    fontFamily: "Montserrat",
-    fontWeight: FontWeight.w500,
-  );
-
-  final TextStyle subtitleStyle = TextStyle(
-    fontSize: 16,
-    fontWeight: FontWeight.w200,
-    fontFamily: "Montserrat",
-  );
-
-  final TextStyle co2Style = TextStyle(
-    fontSize: 36,
-    fontWeight: FontWeight.w200,
-    fontFamily: "Montserrat",
-  );
-
   @override
   Widget build(BuildContext context) {
+    final TextStyle titleStyle = TextStyle(
+      fontSize: 24,
+      fontFamily: "Montserrat",
+      fontWeight: FontWeight.w500,
+      color: foregroundColor,
+    );
+
+    final TextStyle subtitleStyle = TextStyle(
+      fontSize: 16,
+      fontWeight: FontWeight.w200,
+      fontFamily: "Montserrat",
+      color: foregroundColor,
+    );
+
+    final TextStyle co2Style = TextStyle(
+      fontSize: 36,
+      fontWeight: FontWeight.w200,
+      fontFamily: "Montserrat",
+      color: foregroundColor,
+    );
+
     double width = MediaQuery.of(context).size.width;
     return Container(
         margin: EdgeInsets.only(bottom: 15),
