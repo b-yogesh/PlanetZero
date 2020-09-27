@@ -22,13 +22,15 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   
     AnimationController _controller;
     Animation<double> _animation;
+
+    AnimationController _fadeController;
+    Animation<double> _fadeAnimation;
   
     initState() {
       super.initState();
       _controller = AnimationController(
           duration: const Duration(milliseconds: 100000),
           vsync: this,
-          value: 0.25,
           lowerBound: 0,
           upperBound: 1,
 
@@ -38,10 +40,19 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       _controller.forward();
 
       _animation.addStatusListener((status) {
-      if (status == AnimationStatus.completed) {
-        _controller.repeat();
-      }
-    });
+        if (status == AnimationStatus.completed) {
+          _controller.repeat();
+        }
+      });
+
+      _fadeController = AnimationController(
+          duration: const Duration(milliseconds: 1000),
+          vsync: this,
+          lowerBound: 0,
+          upperBound: 1,
+
+      );
+      _fadeController.forward();
     }
   
     @override
@@ -61,14 +72,20 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             child: OverflowBox(
               maxHeight: MediaQuery.of(context).size.height*2,
               maxWidth: MediaQuery.of(context).size.height*2,
-              child: RotationTransition(
-                turns: _animation,
-                child: Image(
-                  image: widget.co2Level == 0 ? AssetImage("assets/backgrounds/state1.png") :
-                          widget.co2Level == 1 ? AssetImage("assets/backgrounds/state2.png") :
-                                          AssetImage("assets/backgrounds/state3.png"),
-                  height: MediaQuery.of(context).size.height*2,
-                  fit: BoxFit.none,
+              child: FadeTransition(
+                opacity: Tween<double>(
+                  begin: 0.0,
+                  end: 1.0,
+                ).animate(_fadeController),
+                child: RotationTransition(
+                  turns: _animation,
+                  child: Image(
+                    image: widget.co2Level == 0 ? AssetImage("assets/backgrounds/state1.png") :
+                            widget.co2Level == 1 ? AssetImage("assets/backgrounds/state2.png") :
+                                            AssetImage("assets/backgrounds/state3.png"),
+                    height: MediaQuery.of(context).size.height*2,
+                    fit: BoxFit.none,
+                  ),
                 ),
               ),
             ),
