@@ -170,6 +170,7 @@ class _HistoryPageState extends State<HistoryPage> {
                       Timeline(
                         title: "Today",
                         children: [
+                          TimelineItem.fromActivity(_currentActivity),
                           TimelineItem(
                             title: "Walking",
                             subtitle: '650m',

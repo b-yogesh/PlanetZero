@@ -30,7 +30,7 @@ class MeasuredLocation {
       'accuracy': accuracy,
       'speed': speed,
       'speedAccuracy': speedAccuracy,
-      'timestamp': timestamp.toString(),
+      'timestamp': timestamp.toIso8601String(),
     };
   }
 

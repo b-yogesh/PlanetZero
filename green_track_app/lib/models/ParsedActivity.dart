@@ -25,8 +25,8 @@ class ParsedActivity {
     return {
       'id': id,
       'type': type,
-      'start': start.toString(),
-      'end': end.toString(),
+      'start': start.toIso8601String(),
+      'end': end.toIso8601String(),
       'distance': distance,
     };
   }

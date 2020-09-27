@@ -18,7 +18,7 @@ class MeasuredActivity {
       'id': id,
       'type': type,
       'confidence': confidence,
-      'timestamp': timestamp.toString(),
+      'timestamp': timestamp.toIso8601String(),
       'parsed': parsed,
     };
   }
