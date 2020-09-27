@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:green_track_app/SlideNavigation.dart';
+import 'package:green_track_app/models/ParsedActivity.dart';
+import 'package:green_track_app/services/measurementParser.dart';
 import 'package:green_track_app/widgets/colorSplitText.dart';
 import 'package:green_track_app/widgets/infoBadge.dart';
 import 'package:green_track_app/widgets/timeline.dart';
@@ -11,12 +13,22 @@ class HistoryPage extends StatefulWidget {
 }
 
 class _HistoryPageState extends State<HistoryPage> {
+  ParsedActivity _currentActivity;
+
   final TextStyle infoBadgeTitleTextStyle = TextStyle(
     color: Colors.white,
     fontFamily: "Nunito Sans",
     fontWeight: FontWeight.w700,
     fontSize: 15,
   );
+
+  initState() async {
+    super.initState();
+    // var currentActivity = await parseMeasurementsAndGetCurrent();
+    // setState(() {
+    //   _currentActivity = currentActivity;
+    // });
+  }
 
   @override
   Widget build(BuildContext context) {
