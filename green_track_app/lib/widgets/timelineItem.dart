@@ -20,22 +20,22 @@ class TimelineItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TextStyle titleStyle = TextStyle(
-      fontSize: 24,
+      fontSize: 22,
       fontFamily: "Montserrat",
-      fontWeight: FontWeight.w500,
+      fontWeight: FontWeight.w900,
       color: foregroundColor,
     );
 
     final TextStyle subtitleStyle = TextStyle(
-      fontSize: 16,
-      fontWeight: FontWeight.w200,
+      fontSize: 14,
+      fontWeight: FontWeight.w700,
       fontFamily: "Montserrat",
       color: foregroundColor,
     );
 
     final TextStyle co2Style = TextStyle(
-      fontSize: 36,
-      fontWeight: FontWeight.w200,
+      fontSize: 30,
+      fontWeight: FontWeight.w900,
       fontFamily: "Montserrat",
       color: foregroundColor,
     );

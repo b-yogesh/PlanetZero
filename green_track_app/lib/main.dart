@@ -12,7 +12,7 @@ void main() async {
     DeviceOrientation.portraitUp,
   ]);
 
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Colors.black));
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Colors.transparent));
 
   runApp(MyApp());
 }

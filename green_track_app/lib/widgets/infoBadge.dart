@@ -53,11 +53,18 @@ class InfoBadge extends StatelessWidget {
   final int decimalPart;
   final bool useDecimal;
   final String suffix;
+  final bool smallSuffix;
 
-  InfoBadge({this.wholePart, this.decimalPart, this.useDecimal, this.suffix});
+  InfoBadge({this.wholePart, this.decimalPart, this.useDecimal, this.suffix, this.smallSuffix=false});
 
   final TextStyle infoBadgeSuffixStyle = TextStyle(
     fontSize: 18,
+    fontFamily: "Nunito Sans",
+    fontWeight: FontWeight.w500,
+    color: Colors.white,
+  );
+  final TextStyle infoBadgeSmallSuffixStyle = TextStyle(
+    fontSize: 15,
     fontFamily: "Nunito Sans",
     fontWeight: FontWeight.w500,
     color: Colors.white,
@@ -76,7 +83,7 @@ class InfoBadge extends StatelessWidget {
           opacity: 0.5,
           child: Text(
             suffix,
-            style: infoBadgeSuffixStyle,
+            style: !smallSuffix ? infoBadgeSuffixStyle : infoBadgeSmallSuffixStyle,
           ),
         )
       ],
@@ -89,12 +96,14 @@ class InfoBadgeInverted extends StatelessWidget {
   final int decimalPart;
   final bool useDecimal;
   final String suffix;
+  final bool smallSuffix;
 
   InfoBadgeInverted({
     this.wholePart,
     this.decimalPart,
     this.useDecimal,
     this.suffix,
+    this.smallSuffix=false
   });
 
   final TextStyle infoBadgeSuffixStyle = TextStyle(
@@ -103,16 +112,23 @@ class InfoBadgeInverted extends StatelessWidget {
     fontWeight: FontWeight.w500,
     color: Colors.white,
   );
+  final TextStyle infoBadgeSmallSuffixStyle = TextStyle(
+    fontSize: 15,
+    fontFamily: "Nunito Sans",
+    fontWeight: FontWeight.w500,
+    color: Colors.white,
+  );
 
   @override
   Widget build(BuildContext context) {
+
     return Column(
       children: [
         Opacity(
           opacity: 0.5,
           child: Text(
             suffix,
-            style: infoBadgeSuffixStyle,
+            style: !smallSuffix ? infoBadgeSuffixStyle : infoBadgeSmallSuffixStyle,
           ),
         ),
         InfoBadgeNumber(

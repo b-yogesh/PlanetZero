@@ -9,9 +9,9 @@ class Timeline extends StatelessWidget {
   Timeline({this.title, this.height, this.children});
 
   final TextStyle titleStyle = TextStyle(
-    fontSize: 16,
+    fontSize: 12,
     fontFamily: "Montserrat",
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.w700,
     color: Colors.grey,
   );
 
@@ -32,8 +32,8 @@ class Timeline extends StatelessWidget {
                   dashColor: Colors.grey,
                   direction: Axis.vertical,
                   lineLength: height,
-                  lineThickness: 5,
-                  dashLength: 15,
+                  lineThickness: 4,
+                  dashLength: 10,
                   dashGapLength: 12,
                   dashRadius: 5,
                 ),
@@ -42,7 +42,8 @@ class Timeline extends StatelessWidget {
                   children: children,
                 ),
               ],
-            )
+            ),
+            Container(height:10)
           ],
         )
       ],
