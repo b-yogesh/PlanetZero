@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:green_track_app/models/ParsedActivity.dart';
 
 class TimelineItem extends StatelessWidget {
   final String title;
@@ -16,6 +17,19 @@ class TimelineItem extends StatelessWidget {
     this.emission,
     this.height,
   });
+
+  static TimelineItem fromActivity(ParsedActivity activity) {
+    var category = activity.getCategory();
+    return TimelineItem(
+      color: category == "Neutral" ? Color(0xFF26FF97)
+          : category == "Friendly" ? Color(0xFFE1FFE0)
+          : Color(0xFFF13737),
+      title: activity.type,
+      subtitle: (activity.distance / 1000).toString() + "m",
+      foregroundColor: Colors.white,
+      height: 95.0 + activity.end.difference(activity.start).inHours * 20,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
