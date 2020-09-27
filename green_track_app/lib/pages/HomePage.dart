@@ -136,13 +136,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 55),
                     child: EmojiBadge(
-                      mainText: "2.3km",
+                      mainText: "5.4km",
                       suffix: "kg CO₂",
                       level: 1,
                     ),
                   ),
                   EmojiBadge(
-                    mainText: "2.3km",
+                    mainText: "3.2km",
                     suffix: "kg CO₂",
                     level: 2,
                   ),
