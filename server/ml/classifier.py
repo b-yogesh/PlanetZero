@@ -7,12 +7,13 @@ import numpy as np
 
 geod = pyproj.Geod(ellps='WGS84')
 headers_trajectory = ['lat', 'long', 'null', 'altitude','timestamp_float', 'date', 'time']
+labels = ['walk', 'bike', 'car', 'bus', 'subway', 'taxi', 'train', 'airplane', 'boat', 'run']
+
 
 class RandomForestClassifier:
 
     def __init__(self):
-        # self.model = pickle.load(path+ "rf_classifier.sav")
-        pass
+        self.model = pd.read_pickle(os.path.dirname(os.path.abspath(__file__)) +  "/rf_classifier.sav")
 
 
     def calculate_distance(self, long1, lat1, long2, lat2):
@@ -95,7 +96,10 @@ class RandomForestClassifier:
 
 
     def postprocessing(self, prediction):
-        return {"prediction": prediction, "status": "OK"}
+        print("predicion", prediction)
+        i = np.argmax(prediction)
+        print(labels[i-1])
+        return {"prediction": labels[i-1], "status": "OK"}
 
 
     def compute_prediction(self, input_data):
@@ -110,7 +114,7 @@ class RandomForestClassifier:
 
 
 #test
-# data = pd.read_csv("../test.csv")
+# data = pd.read_csv("/media/yogesh/New Volume/Hackathon/GreenTrack/server/ml/test2.csv")
 # data = data.iloc[:, 0:5]
 # classifier = RandomForestClassifier()
 # classifier.compute_prediction(data)
