@@ -55,7 +55,12 @@ class InfoBadge extends StatelessWidget {
   final String suffix;
   final bool smallSuffix;
 
-  InfoBadge({this.wholePart, this.decimalPart, this.useDecimal, this.suffix, this.smallSuffix=false});
+  InfoBadge(
+      {this.wholePart,
+      this.decimalPart,
+      this.useDecimal,
+      this.suffix,
+      this.smallSuffix = false});
 
   final TextStyle infoBadgeSuffixStyle = TextStyle(
     fontSize: 18,
@@ -83,7 +88,8 @@ class InfoBadge extends StatelessWidget {
           opacity: 0.5,
           child: Text(
             suffix,
-            style: !smallSuffix ? infoBadgeSuffixStyle : infoBadgeSmallSuffixStyle,
+            style:
+                !smallSuffix ? infoBadgeSuffixStyle : infoBadgeSmallSuffixStyle,
           ),
         )
       ],
@@ -92,26 +98,28 @@ class InfoBadge extends StatelessWidget {
 }
 
 class InfoBadgeInverted extends StatelessWidget {
-  final int wholePart;
-  final int decimalPart;
-  final bool useDecimal;
+  final String value;
   final String suffix;
   final bool smallSuffix;
 
   InfoBadgeInverted({
-    this.wholePart,
-    this.decimalPart,
-    this.useDecimal,
+    this.value,
     this.suffix,
-    this.smallSuffix=false
+    this.smallSuffix = false,
   });
 
-  final TextStyle infoBadgeSuffixStyle = TextStyle(
-    fontSize: 18,
+  final TextStyle infoBadgeNumberStyle = TextStyle(
+    fontSize: 45,
     fontFamily: "Nunito Sans",
-    fontWeight: FontWeight.w500,
-    color: Colors.white,
+    fontWeight: FontWeight.w900,
+    color: Color(0xff26FF97),
   );
+
+  final TextStyle infoBadgeSuffixStyle = TextStyle(
+      fontSize: 18,
+      fontFamily: "Nunito Sans",
+      fontWeight: FontWeight.w500,
+      color: Colors.white);
   final TextStyle infoBadgeSmallSuffixStyle = TextStyle(
     fontSize: 15,
     fontFamily: "Nunito Sans",
@@ -121,21 +129,17 @@ class InfoBadgeInverted extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Column(
       children: [
         Opacity(
           opacity: 0.5,
           child: Text(
             suffix,
-            style: !smallSuffix ? infoBadgeSuffixStyle : infoBadgeSmallSuffixStyle,
+            style:
+                !smallSuffix ? infoBadgeSuffixStyle : infoBadgeSmallSuffixStyle,
           ),
         ),
-        InfoBadgeNumber(
-          wholePart: wholePart,
-          decimalPart: decimalPart,
-          useDecimal: useDecimal,
-        ),
+        Text(value, style: infoBadgeNumberStyle),
       ],
     );
   }
