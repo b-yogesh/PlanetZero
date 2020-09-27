@@ -72,14 +72,15 @@ class _DonatePageState extends State<DonatePage> {
               ),
               OffsettingPost(
                 bulletPoints: [
-                  "test 1",
-                  "test 2",
-                  "test 3 tespij psjep jpfojespo jfpsejp ofepf feopsj foejsofp joüsjf eü esjü"
+                  "Biodiversity conservation",
+                  "Reintroduce wild animals that are illegally removed",
+                  "Improved working conditions to employees",
+                  "Avoidance of deforestation"
                 ],
-                name: "test name 3",
-                imageUrl: "https://picsum.photos/250?image=9",
-                learnMoreUrl: "https://www.google.com",
-                offsetUrl: "https://www.google.com",
+                name: "Ceará Renewable Energy Bundled Project",
+                imageUrl: "https://www.goldstandard.org/sites/default/files/styles/1140x400/public/arara.jpg?itok=vQ_FPCHR",
+                learnMoreUrl: "https://www.goldstandard.org/projects/ceara-renewable-energy-bundled-project",
+                offsetUrl: "https://www.goldstandard.org/projects/ceara-renewable-energy-bundled-project",
               ),
               Container(height: 5)
             ],
