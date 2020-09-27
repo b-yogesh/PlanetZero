@@ -7,10 +7,9 @@ import 'package:green_track_app/widgets/offsetButton.dart';
 import 'package:green_track_app/widgets/swipeUpIndicator.dart';
 
 class HomePage extends StatefulWidget {
-
-  double co2Amount = 5.32;
-  int treeAmount = 7;
-  int percentageBetterThanAverage = 30;
+  final double co2Amount = 5.32;
+  final int treeAmount = 7;
+  final int percentageBetterThanAverage = 30;
 
   @override
   _HomePageState createState() => _HomePageState();

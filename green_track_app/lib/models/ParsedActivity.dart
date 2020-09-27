@@ -29,6 +29,12 @@ class ParsedActivity {
     """;
   }
 
+  static String dropSQL() {
+    return """
+      DROP TABLE IF EXISTS parsedActivities;
+    """;
+  }
+
   static ParsedActivity fromMap(Map<String, dynamic> map) {
     return ParsedActivity(
       id: map['id'],

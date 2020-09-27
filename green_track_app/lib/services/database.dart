@@ -12,11 +12,16 @@ Future<void> initDatabase() async {
   db = await openDatabase(
     join(await getDatabasesPath(), 'database.db'),
     onCreate: (db, version) async {
+      await db.execute(MeasuredActivity.dropSQL());
       await db.execute(MeasuredActivity.createSQL());
+      
+      await db.execute(MeasuredLocation.dropSQL());
       await db.execute(MeasuredLocation.createSQL());
+
+      await db.execute(ParsedActivity.dropSQL());
       await db.execute(ParsedActivity.createSQL());
     },
-    version: 5,
+    version: 6,
   );
 }
 
@@ -34,6 +39,28 @@ Future<void> insertParsedActivity(ParsedActivity activity) async {
 
 Future<List<ParsedActivity>> parsedActivities() async {
   final List<Map<String, dynamic>> maps = await db.query('parsedActivities');
+  return List.generate(maps.length, (i) {
+    return ParsedActivity.fromMap(maps[i]);
+  });
+}
+
+Future<List<ParsedActivity>> measuredLocationsInRange(DateTime from, DateTime to) async {
+  final List<Map<String, dynamic>> maps = await db.query(
+    'measuredLocations',
+    where: 'from >= ? AND to <= ?',
+    whereArgs: [],
+  );
+
+  return List.generate(maps.length, (i) {
+    return ParsedActivity.fromMap(maps[i]);
+  });
+}
+
+Future<List<ParsedActivity>> measuredActivities(DateTime from, DateTime to) async {
+  final List<Map<String, dynamic>> maps = await db.query(
+    'measuredActivities'
+  );
+
   return List.generate(maps.length, (i) {
     return ParsedActivity.fromMap(maps[i]);
   });

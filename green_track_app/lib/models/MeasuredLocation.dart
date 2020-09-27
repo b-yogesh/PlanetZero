@@ -50,6 +50,12 @@ class MeasuredLocation {
     """;
   }
 
+  static String dropSQL() {
+    return """
+      DROP TABLE IF EXISTS measuredLocations;
+    """;
+  }
+
   static MeasuredLocation fromMap(Map<String, dynamic> map) {
     return MeasuredLocation(
       id: map['id'],

@@ -3,8 +3,15 @@ class MeasuredActivity {
   final String type;
   final int confidence;
   final DateTime timestamp;
+  final bool parsed;
 
-  MeasuredActivity({this.id, this.type, this.confidence, this.timestamp});
+  MeasuredActivity({
+    this.id,
+    this.type,
+    this.confidence,
+    this.timestamp,
+    this.parsed,
+  });
 
   Map<String, dynamic> toMap() {
     return {
@@ -12,6 +19,7 @@ class MeasuredActivity {
       'type': type,
       'confidence': confidence,
       'timestamp': timestamp.toString(),
+      'parsed': parsed,
     };
   }
 
@@ -21,8 +29,15 @@ class MeasuredActivity {
         id INTEGER PRIMARY KEY, 
         type TEXT,
         confidence INTEGER,
-        timestamp TEXT
+        timestamp TEXT,
+        parsed BOOLEAN
       );
+    """;
+  }
+
+  static String dropSQL() {
+    return """
+      DROP TABLE IF EXISTS measuredActivities;
     """;
   }
 
@@ -32,6 +47,7 @@ class MeasuredActivity {
       type: map['type'],
       confidence: map['confidence'],
       timestamp: DateTime.parse(map['timestamp']),
+      parsed: map['parsed'],
     );
   }
 }
