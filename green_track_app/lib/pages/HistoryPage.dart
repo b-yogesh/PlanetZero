@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:green_track_app/SlideNavigation.dart';
-import 'package:green_track_app/models/ParsedActivity.dart';
 import 'package:green_track_app/widgets/colorSplitText.dart';
 import 'package:green_track_app/widgets/infoBadge.dart';
 import 'package:green_track_app/widgets/timeline.dart';
 import 'package:green_track_app/widgets/timelineItem.dart';
-import 'package:green_track_app/services/measurementParser.dart';
 
 class HistoryPage extends StatefulWidget {
   @override
