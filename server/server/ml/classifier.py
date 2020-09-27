@@ -79,7 +79,7 @@ class RandomForestClassifier:
 
 
     def preprocessing(self, input_data):
-        # input_data = pd.DataFrame(input_data, index_col=0)
+        input_data = pd.DataFrame(input_data)
         input_data = self.load_trajectory_df(input_data)
         # input_data.fillna(self.values_fill_missing)
         input_data = input_data.dropna(subset=['v_ave','v_med','v_max',  'a_ave', 'a_med', 'a_max']) 
@@ -90,6 +90,7 @@ class RandomForestClassifier:
         X_colnames = ['v_ave','v_med','v_max', 'a_ave', 'a_med', 'a_max']
         input_data = input_data[X_colnames].values
         print("predict", input_data.shape)
+        print(input_data)
         return self.model.predict_proba(input_data)
 
 
@@ -103,13 +104,13 @@ class RandomForestClassifier:
             prediction = self.predict(input_data)[0]  # only one sample
             prediction = self.postprocessing(prediction)
         except Exception as e:
-            return {"status": "Error", "message": str(e)}
+            return {"status": "Error1", "message": str(e)}
 
         return prediction
 
 
 #test
-data = pd.read_csv("../test.csv")
-data = data.iloc[:, 0:5]
-classifier = RandomForestClassifier()
-classifier.compute_prediction(data)
+# data = pd.read_csv("../test.csv")
+# data = data.iloc[:, 0:5]
+# classifier = RandomForestClassifier()
+# classifier.compute_prediction(data)
