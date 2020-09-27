@@ -50,25 +50,27 @@ class _DonatePageState extends State<DonatePage> {
               ),
               OffsettingPost(
                 bulletPoints: [
-                  "test 1",
-                  "test 2",
-                  "test 3 tespij psjep jpfojespo jfpsejp ofepf feopsj foejsofp joüsjf eü esjü"
+                  "Halting and reversing land degradation",
+                  "Employment, including local people",
+                  "Creating new industry in rural areas",
+                  "Large-scale habitat for over 450 native species"
                 ],
-                name: "test name 1",
-                imageUrl: "https://picsum.photos/250?image=9",
-                learnMoreUrl: "https://www.google.com",
-                offsetUrl: "https://www.google.com",
+                name: "Yarra Yarra Biodiversity Project",
+                imageUrl: "https://www.goldstandard.org/sites/default/files/styles/1140x400/public/yarra_yarra_project_splendid_fairy-wren_male_hvrem5northside_111014_3.jpg?itok=L-_X8ruY",
+                learnMoreUrl: "https://www.goldstandard.org/projects/yarra-yarra-biodiversity-project",
+                offsetUrl: "https://www.goldstandard.org/projects/yarra-yarra-biodiversity-project",
               ),
               OffsettingPost(
                 bulletPoints: [
-                  "test 1",
-                  "test 2",
-                  "test 3 tespij psjep jpfojespo jfpsejp ofepf feopsj foejsofp joüsjf eü esjü"
+                  "15.140 smoke-free kitchens",
+                  "90.840 direct beneficiaries",
+                  "333.500 tCO2 reduced",
+                  "202.000 ton of wood saved"
                 ],
-                name: "test name 2",
-                imageUrl: "https://picsum.photos/250?image=9",
-                learnMoreUrl: "https://www.google.com",
-                offsetUrl: "https://www.google.com",
+                name: "Kenya Biogas Programme",
+                imageUrl: "https://www.goldstandard.org/sites/default/files/styles/1140x400/public/10biogas_nakuru.jpg?itok=lZiqCOBj",
+                learnMoreUrl: "https://www.goldstandard.org/projects/kenya-biogas-programme",
+                offsetUrl: "https://www.goldstandard.org/projects/kenya-biogas-programme",
               ),
               OffsettingPost(
                 bulletPoints: [
