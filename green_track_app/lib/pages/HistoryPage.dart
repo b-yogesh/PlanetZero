@@ -22,12 +22,18 @@ class _HistoryPageState extends State<HistoryPage> {
     fontSize: 15,
   );
 
-  initState() async {
+  initState() {
     super.initState();
-    // var currentActivity = await parseMeasurementsAndGetCurrent();
-    // setState(() {
-    //   _currentActivity = currentActivity;
-    // });
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      this.loadData();
+    });
+  }
+
+  void loadData() async {
+    var currentActivity = await parseMeasurementsAndGetCurrent();
+    setState(() {
+      _currentActivity = currentActivity;
+    });
   }
 
   @override

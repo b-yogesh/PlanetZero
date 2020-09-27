@@ -19,7 +19,7 @@ class MeasuredActivity {
       'type': type,
       'confidence': confidence,
       'timestamp': timestamp.toIso8601String(),
-      'parsed': parsed,
+      'parsed': parsed ? 1 : 0,
     };
   }
 
@@ -30,7 +30,7 @@ class MeasuredActivity {
         type TEXT,
         confidence INTEGER,
         timestamp TEXT,
-        parsed BOOLEAN
+        parsed INTEGER
       );
     """;
   }
@@ -47,7 +47,7 @@ class MeasuredActivity {
       type: map['type'],
       confidence: map['confidence'],
       timestamp: DateTime.parse(map['timestamp']),
-      parsed: map['parsed'],
+      parsed: map['parsed'] > 0,
     );
   }
 }

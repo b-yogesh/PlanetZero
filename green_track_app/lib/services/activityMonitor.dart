@@ -22,7 +22,7 @@ void onActivityData(Activity activity) async {
   var confidence = activity.confidence;
 
   var measuredActivity = MeasuredActivity(
-      confidence: confidence, type: type.toString(), timestamp: DateTime.now());
+      confidence: confidence, type: type.toString(), timestamp: DateTime.now(), parsed: false);
   await insertMeasuredActivity(measuredActivity);
 }
 

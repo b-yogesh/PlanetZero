@@ -31,7 +31,7 @@ Future<void> initDatabase() async {
     onDowngrade: (db, oldVersion, newVersion) {
       initDb(db);
     },
-    version: 1,
+    version: 2,
   );
 }
 
