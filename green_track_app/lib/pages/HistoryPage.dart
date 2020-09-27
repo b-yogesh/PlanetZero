@@ -30,10 +30,10 @@ class _HistoryPageState extends State<HistoryPage> {
   }
 
   void loadData() async {
-    var currentActivity = await parseMeasurementsAndGetCurrent();
-    setState(() {
-      _currentActivity = currentActivity;
-    });
+    // var currentActivity = await parseMeasurementsAndGetCurrent();
+    // setState(() {
+    //   _currentActivity = currentActivity;
+    // });
   }
 
   @override
