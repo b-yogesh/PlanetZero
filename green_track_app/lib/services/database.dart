@@ -58,7 +58,7 @@ Future<List<MeasuredLocation>> measuredLocationsInRange(
     DateTime from, DateTime to) async {
   final List<Map<String, dynamic>> maps = await db.query(
     'measuredLocations',
-    where: 'from >= ? AND to <= ?',
+    where: 'timestamp >= ? AND timestamp <= ?',
     whereArgs: [from.toIso8601String(), to.toIso8601String()],
   );
 
@@ -83,7 +83,7 @@ Future<void> markMeasuredActivitiesAsParsed(
   await db.update(
     'measuredActivities',
     {'parsed': true},
-    where: 'from >= ? AND to <= ?',
+    where: 'timestamp >= ? AND timestamp <= ?',
     whereArgs: [from.toIso8601String(), to.toIso8601String()],
   );
 }
