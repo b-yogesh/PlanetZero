@@ -7,6 +7,20 @@ class ParsedActivity {
 
   ParsedActivity({this.id, this.type, this.start, this.end, this.distance});
 
+  getCategory() {
+    switch (this.type) {
+      case "Automotive":
+      case "IN_VEHICLE":
+        return "Killer";
+
+      case "PUBLIC_TRANSPORT":
+        return "Friendly";
+
+      default:
+        return "Neutral";
+    }
+  }
+
   Map<String, dynamic> toMap() {
     return {
       'id': id,
