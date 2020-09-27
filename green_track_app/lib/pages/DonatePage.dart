@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:green_track_app/widgets/offsetingPost.dart';
+import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
+
 
 class DonatePage extends StatefulWidget {
   @override
@@ -14,6 +16,17 @@ class DonatePage extends StatefulWidget {
 }
 
 class _DonatePageState extends State<DonatePage> {
+
+  initState() {
+    super.initState();
+    FlutterStatusbarcolor.setStatusBarWhiteForeground(false);
+  }
+  
+  @override
+  dispose() {
+    FlutterStatusbarcolor.setStatusBarWhiteForeground(true);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

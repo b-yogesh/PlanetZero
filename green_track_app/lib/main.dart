@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:green_track_app/SlideNavigation.dart';
 import 'package:green_track_app/services/activityMonitor.dart';
 import 'package:green_track_app/services/database.dart';
@@ -12,7 +13,8 @@ void main() async {
     DeviceOrientation.portraitUp,
   ]);
 
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+  await FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
+  await FlutterStatusbarcolor.setStatusBarWhiteForeground(true);
 
   runApp(MyApp());
 }
