@@ -11,7 +11,7 @@ class HomePage extends StatefulWidget {
   final int treeAmount = 7;
   final int percentageBetterThanAverage = 30;
 
-  final int co2Level = 0; //0-2
+  final int co2Level = 1; //0-2
 
   @override
   _HomePageState createState() => _HomePageState();

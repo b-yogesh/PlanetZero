@@ -173,6 +173,14 @@ class _HistoryPageState extends State<HistoryPage> {
                         title: "Today",
                         children: [
                           TimelineItem(
+                            title: "Car",
+                            subtitle: '2.5km',
+                            height: 140,
+                            color: Color(0xffF13737),
+                            foregroundColor: Colors.black,
+                            emission: 0.84,
+                          ),
+                          TimelineItem(
                             title: "Walking",
                             subtitle: '650m',
                             height: 95,
