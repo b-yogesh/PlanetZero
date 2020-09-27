@@ -64,7 +64,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               child: RotationTransition(
                 turns: _animation,
                 child: Image(
-                  image: AssetImage("assets/backgrounds/state1.png"),
+                  image: widget.co2Level == 0 ? AssetImage("assets/backgrounds/state1.png") :
+                          widget.co2Level == 1 ? AssetImage("assets/backgrounds/state2.png") :
+                                          AssetImage("assets/backgrounds/state3.png"),
                   height: MediaQuery.of(context).size.height*2,
                   fit: BoxFit.none,
                 ),
