@@ -13,22 +13,12 @@ class HistoryPage extends StatefulWidget {
 }
 
 class _HistoryPageState extends State<HistoryPage> {
-  ParsedActivity _currentActivity;
-
   final TextStyle infoBadgeTitleTextStyle = TextStyle(
     color: Colors.white,
     fontFamily: "Nunito Sans",
     fontWeight: FontWeight.w700,
     fontSize: 15,
   );
-
-  initState() async {
-    super.initState();
-    var currentActivity = await parseMeasurementsAndGetCurrent();
-    setState(() {
-      _currentActivity = currentActivity;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -170,7 +160,6 @@ class _HistoryPageState extends State<HistoryPage> {
                       Timeline(
                         title: "Today",
                         children: [
-                          TimelineItem.fromActivity(_currentActivity),
                           TimelineItem(
                             title: "Walking",
                             subtitle: '650m',
