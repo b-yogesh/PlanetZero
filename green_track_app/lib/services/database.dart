@@ -7,21 +7,31 @@ import 'package:sqflite/sqflite.dart';
 
 Database db;
 
+Future<void> initDb(db) async {
+  await db.execute(MeasuredActivity.dropSQL());
+  await db.execute(MeasuredActivity.createSQL());
+
+  await db.execute(MeasuredLocation.dropSQL());
+  await db.execute(MeasuredLocation.createSQL());
+
+  await db.execute(ParsedActivity.dropSQL());
+  await db.execute(ParsedActivity.createSQL());
+}
+
 Future<void> initDatabase() async {
   WidgetsFlutterBinding.ensureInitialized();
   db = await openDatabase(
     join(await getDatabasesPath(), 'database.db'),
     onCreate: (db, version) async {
-      await db.execute(MeasuredActivity.dropSQL());
-      await db.execute(MeasuredActivity.createSQL());
-      
-      await db.execute(MeasuredLocation.dropSQL());
-      await db.execute(MeasuredLocation.createSQL());
-
-      await db.execute(ParsedActivity.dropSQL());
-      await db.execute(ParsedActivity.createSQL());
+      initDb(db);
     },
-    version: 6,
+    onUpgrade: (db, oldVersion, newVersion) {
+      initDb(db);
+    },
+    onDowngrade: (db, oldVersion, newVersion) {
+      initDb(db);
+    },
+    version: 1,
   );
 }
 
@@ -44,24 +54,36 @@ Future<List<ParsedActivity>> parsedActivities() async {
   });
 }
 
-Future<List<ParsedActivity>> measuredLocationsInRange(DateTime from, DateTime to) async {
+Future<List<MeasuredLocation>> measuredLocationsInRange(
+    DateTime from, DateTime to) async {
   final List<Map<String, dynamic>> maps = await db.query(
     'measuredLocations',
     where: 'from >= ? AND to <= ?',
-    whereArgs: [],
+    whereArgs: [from, to],
   );
 
   return List.generate(maps.length, (i) {
-    return ParsedActivity.fromMap(maps[i]);
+    return MeasuredLocation.fromMap(maps[i]);
   });
 }
 
-Future<List<ParsedActivity>> measuredActivities(DateTime from, DateTime to) async {
-  final List<Map<String, dynamic>> maps = await db.query(
-    'measuredActivities'
-  );
+Future<List<MeasuredActivity>> measuredActivities() async {
+  final List<Map<String, dynamic>> maps =
+      await db.query('measuredActivities', orderBy: 'timestamp ASC');
 
   return List.generate(maps.length, (i) {
-    return ParsedActivity.fromMap(maps[i]);
+    return MeasuredActivity.fromMap(maps[i]);
   });
+}
+
+Future<void> markMeasuredActivitiesAsParsed(
+  DateTime from,
+  DateTime to,
+) async {
+  await db.update(
+    'measuredActivities',
+    {'parsed': true},
+    where: 'from >= ? AND to <= ?',
+    whereArgs: [from, to],
+  );
 }
